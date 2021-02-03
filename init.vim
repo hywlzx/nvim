@@ -129,7 +129,7 @@ let g:terminal_color_14 = '#9AEDFE'
 " ===
 " Set <LEADER> as <SPACE>, ; as :
 let mapleader=" "
-noremap ; :
+" noremap ; :
 
 " Save & quit
 noremap Q :q<CR>
@@ -151,7 +151,7 @@ noremap <LEADER>rv :e .nvimrc<CR>
 nnoremap Y y$
 
 " Copy to system clipboard
-vnoremap Y "+y
+vnoremap Y :w !clip.exe<CR><CR>
 
 " Indentation
 nnoremap < <<
