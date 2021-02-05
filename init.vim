@@ -151,11 +151,7 @@ noremap <LEADER>rv :e .nvimrc<CR>
 nnoremap Y y$
 
 " Copy to system clipboard
-vnoremap Y :w !clip.exe<CR><CR>
-
-" Indentation
-nnoremap < <<
-nnoremap > >>
+vnoremap Y "+y
 
 " Search
 noremap <LEADER><CR> :nohlsearch<CR>
@@ -171,6 +167,21 @@ vnoremap <LEADER>tt :s/    /\t/g
 noremap <silent> <LEADER>o za
 
 " nnoremap <c-n> :tabe<CR>:-tabmove<CR>:term lazynpm<CR>
+
+" WSL clipboard
+set clipboard+=unnamedplus
+let g:clipboard = {
+			\ 'name': 'win32yank-wsl',
+			\ 'copy': {
+			\		 '+': '/mnt/d/win32yank/win32yank.exe -i --crlf',
+			\    '*': '/mnt/d/win32yank/win32yank.exe -i --crlf',
+			\ },
+			\ 'paste': {
+			\    '+': '/mnt/d/win32yank/win32yank.exe -o --lf',
+			\    '*': '/mnt/d/win32yank/win32yank.exe -o --lf',
+			\ },
+			\ 'cache_enable': 0,
+			\}
 
 
 " ===
@@ -376,7 +387,7 @@ func! CompileRunGcc()
 		:sp
 		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
 	elseif &filetype == 'go'
-		set splitbelow
+		set SPlitbelow
 		:sp
 		:term go run .
 	endif
