@@ -45,3 +45,10 @@ sudo dpkg -i ripgrep_12.1.1_amd64.deb
 ```
 sudo aptitude install figlet
 ```
+
+- 安装`lazygit`
+```
+sudo add-apt-repository ppa:lazygit-team/release
+sudo aptitude update
+sudo aptitude install lazygit
+```
